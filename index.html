@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<title>分享电台-专辑列表</title>
+	<link rel="stylesheet" type="text/css" href="./css/index.css">
+</head>
+<body>
+	<div class="wrapper">
+		<div class="content">
+			<div class="top">
+				<img src="./images/icon_open_logo@2x.png" class="logo">
+				<a href="javascript:;">打开APP</a>
+			</div>
+			<div class="binner">
+				<div class="mb" style="background: url(http://pic.qqtn.com/up/2018-7/2018071309454626215.jpg); background-position: center; background-repeat: no-repeat; background-size: 100% auto;"></div>
+				<div class="content">
+					<img src="http://pic.qqtn.com/up/2018-7/2018071309454626215.jpg">
+					<div>
+						<div class="title">李四川知识典故</div>
+						<div class="anchor">
+							<img src="http://pic.qqtn.com/up/2017-12/2017121117070577682.jpg">
+							<span>李四川</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="synopsis">
+				<div>
+					<span class="synopsis_title">标签：</span>
+					<span class="label">恋爱</span>
+					<span class="label">婚姻</span>
+					<span class="label">亲子</span>
+				</div>
+				<div class="detail-box">
+					<span>详情：</span>
+					<span class="detail">
+						一个感谢，一次启发，一个愿望，用我的声音，陪伴你左右一个感谢，一次启发，一个愿望，用我的声音，陪伴你左右一个感谢，一次启发，一个愿望，用我的声音感化你的不愉快。希望在未来的日子里可以有你的陪伴，爱就像蓝天白云，晴空万里，突然暴风雨！无处躲避，始料不及！我是隔壁的泰山，抓住爱情的晚餐，噢噢噢噢噢，baby，你就是我的唯一，两个世界都变心，回去谈何容易，确定，你就是我的唯一！
+					</span>
+					<span class="arrow_pic"></span>
+				</div>
+			</div>
+			<p class="list_title">音频列表</p>
+			<ul class="list_box"></ul>
+		</div>
+	</div>
+	
+	<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://unpkg.com/better-scroll/dist/bscroll.min.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			var wrapper = document.querySelector('.wrapper');
+			var scroll = new BScroll(wrapper, {
+				click: true
+			});
+			
+			$.ajax({
+				url: './mock/audio_list.json'
+			}).done((res) => {
+				var divs = '';
+				$.each(res, (index, item) => {
+					divs += '<li><a href="./audio_playing.html"><p class="title">'+item.audio_name+'<span>'+item.release_time+'</span></p>';
+					divs += '<p class="data">时长：<span>'+item.audio_len+'</span>';
+					divs += '播放：<span>'+item.play_num+'</span></p></a></li>';
+				})
+				$('.list_box').append(divs);
+				scroll.refresh();
+			})
+
+			// 打开和收起详情
+			$('.detail-box').click(function() {
+				var isClass = $('.arrow_pic').hasClass('up_detail');
+				if (isClass) {
+					$('.arrow_pic').removeClass('up_detail');
+					$(this).stop(true).animate({height: 70 + 'px'}, 200, function() {
+						scroll.refresh();
+					});
+				} else {
+					$('.arrow_pic').addClass('up_detail');
+					var heiget = $(this).find('.detail').innerHeight() + 14;
+					$(this).stop(true).animate({height: heiget + 'px'}, 200, function() {
+						scroll.refresh();
+					});
+				}
+			})
+		})
+	</script>
+</body>
+</html>

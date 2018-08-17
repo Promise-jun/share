@@ -1,0 +1,62 @@
+[
+	{
+		"album": "另一个童话",
+		"duration": 229,
+		"id": 215540451,
+		"image": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003cKIKZ1J4Yyu.jpg?max_age=2592000",
+		"mid": "003jjoM94WLiTf",
+		"name": "倒数",
+		"singer": "G.E.M. 邓紫棋",
+		"url": "http://dl.stream.qqmusic.qq.com/C400003jjoM94WLiTf.m4a?vkey=A09A4051B705E497F23E8B4F339AF4EE57DE074A2C847B2B29D576A07D6BD4856EAFCB643F19642AC221723B538D9BADC38857261B9BEE36&guid=6935341414&uin=0&fromtag=66",
+		"playNum": 957,
+		"grade": 5.0
+	},
+	{
+		"album": "鸵鸟",
+		"duration": 230,
+		"id": 214124164,
+		"image": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000LwwLU4AsFiQ.jpg?max_age=2592000",
+		"mid": "000pmS5z0GGifZ",
+		"name": "鸵鸟",
+		"singer": "龙迦娜",
+		"url": "http://dl.stream.qqmusic.qq.com/C400000pmS5z0GGifZ.m4a?vkey=576021C5DA0D53F734075396B34FBF341F8B831B7D3DF1A3F5FBA55E8F52D1E2814BF43C89F651E4E74B8909AB5DC8B60517D0EB41F00497&guid=6935341414&uin=0&fromtag=66",
+		"playNum": 557,
+		"grade": 5.0
+	},
+	{
+		"album": "那时候",
+		"duration": 272,
+		"id": 215618136,
+		"image": "https://y.gtimg.cn/music/photo_new/T002R300x300M000001l7Tuk00hZzY.jpg?max_age=2592000",
+		"mid": "000CvVum2IJgCV",
+		"name": "那时候",
+		"singer": "方艺谚",
+		"url": "http://dl.stream.qqmusic.qq.com/C400000CvVum2IJgCV.m4a?vkey=36D883547780E3BCDB5F4DB74C62E58E0A9FC1720FA84D533C768314D530CB3E5201D0E428C64FB6BC4A9F9C66DE90581D810CB097F31A08&guid=6935341414&uin=0&fromtag=66",
+		"playNum": 666,
+		"grade": 5.0
+	},
+	{
+		"album": "我已经爱上你",
+		"duration": 236,
+		"id": 215575050,
+		"image": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003QgK5S2KVz1x.jpg?max_age=2592000",
+		"mid": "001O5hiN2AT6A7",
+		"name": "我已经爱上你",
+		"singer": "魏树清/夏婉安",
+		"url": "http://dl.stream.qqmusic.qq.com/C400001O5hiN2AT6A7.m4a?vkey=97C246306D62E46B01D3CA8CDA07C61F88D849505A5AF1D5FCA9C4E798E0B0AC1489D64E5B914DADF34CA1EDA67D20FAC0D020B295785A84&guid=6935341414&uin=0&fromtag=66",
+		"playNum": 1521,
+		"grade": 5.0
+	},
+	{
+		"album": "2018中国好声音 第4期",
+		"duration": 235,
+		"id": 215643506,
+		"image": "https://y.gtimg.cn/music/photo_new/T002R300x300M0000014Yo3z1tAdRo.jpg?max_age=2592000",
+		"mid": "000mXelz2P2UfF",
+		"name": "说散就散 (Live)",
+		"singer": "JC陈泳彤",
+		"url": "http://dl.stream.qqmusic.qq.com/C400000mXelz2P2UfF.m4a?vkey=C5E2AABF4277E17F9CC07C051F95205966518F2088C05079F461D0110195DF3298386E10DD855BE5E372DA629E5E4A0714A18C9BAD0F5675&guid=6935341414&uin=0&fromtag=66",
+		"playNum": 65188,
+		"grade": 5.0
+	}
+]

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<title>分享电台-播放列表</title>
+	<link rel="stylesheet" type="text/css" href="./css/index.css">
+</head>
+<body>
+	<div class="wrapper">
+		<div class="content">
+			<div class="top shadow">
+				<img src="images/icon_open_logo@2x.png" class="logo">
+				<a href="javascript:;">打开APP</a>
+			</div>
+			<div class="play_box">
+				<img class="play_pic" src="">
+				<p class="play_name"></p>
+				<p class="play_author"></p>
+				<div class="schedule_wrapper" id="progressBar">
+					<div class="schedule_bar">
+						<div class="playing_bar" id="progress"></div>
+						<span class="playing_ball" id="progressBtn"></span>
+					</div>
+				</div>
+				<div class="schedule_time">
+					<span class="start_time">00:00</span>
+					<span class="total_time">13:14</span>
+				</div>
+				<div class="play_btns">
+					<span class="prev" id="playPrev"></span>
+					<span class="play" id="playBtn"></span>
+					<span class="next" id="playNext"></span>
+				</div>
+			</div>
+			<div class="anchor_box">
+				<img src="http://pic.qqtn.com/up/2017-12/2017121117070577682.jpg">
+				<div class="anchor_right">
+					<p class="anchor_name">主播：李四川</p>
+					<p class="anchor_data">
+						<span>节目：20</span>
+						<span>粉丝：3040</span>
+					</p>
+					<a href="javascript:;">+关注</a>
+				</div>
+			</div>
+			<div class="card">
+				<div class="program_info">
+					<div class="program_btn">
+						<p class="title">自我中心不等于自私</p>
+						<p>
+							<span class="time">2018-08-13</span>
+							<span class="count">14.4万次播放</span>
+						</p>
+						<span class="arrow_pic up_detail"></span>
+					</div>
+					<div class="program_text">
+						皮亚杰用于描述儿童6、7岁以前心理特点的一个概念。皮亚杰认为，在心理发展的初期，自我和外部世界还没有明确分化开来。婴儿把每一件事情都与自己的身体关联起来，好像自己就是宇宙的中心一样。也就是说，婴幼儿只能根据自己的需要和感情去判断和理解事物、情境、同人的关系等，而完全不能采取别人的观点，不去注意别人的意图，不会从别人的角度去看问题，同样不能按事物本身的规律和特点去看问题。
+					</div>
+				</div>
+				<div class="program_list">
+					<p class="title">大家都在听</p>
+					<ul id="playListUl">
+						<!-- 播放列表 -->
+					</ul>
+				</div>
+			</div>
+			<div class="card program_discuss">
+				<p class="title">评论</p>
+				<ul>
+					<li>
+						<div class="discuss_user">
+							<img src="http://pic.qqtn.com/up/2017-12/2017121117070577682.jpg">
+							<div class="user_info">
+								<p class="name">Menty</p>
+								<p class="time">2018-04-01 13:00</p>
+							</div>
+						</div>
+						<div class="discuss_text">课程的内容对我帮助很大，里面老师讲的一些故事都很真实，对于一些疑惑我在里面找到了非常完美的答案，买了这个课程真的是物超所值</div>
+					</li>
+					<li>
+						<div class="discuss_user">
+							<img src="http://pic.qqtn.com/up/2017-12/2017121117070577682.jpg">
+							<div class="user_info">
+								<p class="name">Menty</p>
+								<p class="time">2018-04-01 13:00</p>
+							</div>
+						</div>
+						<div class="discuss_text">课程的内容对我帮助很大，里面老师讲的一些故事都很真实，对于一些疑惑我在里面找到了非常完美的答案，买了这个课程真的是物超所值</div>
+					</li>
+					<li>
+						<div class="discuss_user">
+							<img src="http://pic.qqtn.com/up/2017-12/2017121117070577682.jpg">
+							<div class="user_info">
+								<p class="name">Menty</p>
+								<p class="time">2018-04-01 13:00</p>
+							</div>
+						</div>
+						<div class="discuss_text">课程的内容对我帮助很大，里面老师讲的一些故事都很真实，对于一些疑惑我在里面找到了非常完美的答案，买了这个课程真的是物超所值</div>
+					</li>
+				</ul>
+			</div>
+			<a href="javascript:;" class="bottom_link"></a>
+		</div>
+	</div>
+	<audio src="" id="audio" onplay="ready()" ontimeupdate="updateTime()" onended="end()"></audio>
+
+	<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://unpkg.com/better-scroll/dist/bscroll.min.js"></script>
+	<script type="text/javascript" src="js/audioPlay.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			var wrapper = document.querySelector('.wrapper');
+			var scroll = new BScroll(wrapper, {
+				click: true
+			});
+
+
+			// 打开和收起详情
+			$('.program_btn').click(function() {
+				var isClass = $('.arrow_pic').hasClass('up_detail');
+				if (isClass) {
+					$('.arrow_pic').removeClass('up_detail');
+					$('.program_text').slideUp(function() {
+						scroll.refresh();
+					})
+				} else {
+					$('.arrow_pic').addClass('up_detail');
+					$('.program_text').slideDown(function() {
+						scroll.refresh();
+					})
+				}
+			})
+		})
+	</script>
+</body>
+</html>
