@@ -6,13 +6,32 @@
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
 	<title>分享电台-专辑列表</title>
 	<link rel="stylesheet" type="text/css" href="./css/index.css">
+	<style type="text/css">
+		.more_program {
+			padding: 12px 0;
+			background-color: #fff;
+			text-align: center;
+		}
+		.more_program a {
+			display: inline-block;
+			width: 85%;
+			height: 36px;
+			line-height: 36px;
+			border: 1px solid #FF5A1C;
+			border-radius: 50px;
+			font-family: PingFangSC-Medium;
+			font-size: 14px;
+			color: #FF5A1C;
+			letter-spacing: 0.4px;
+		}
+	</style>
 </head>
 <body>
 	<div class="wrapper">
 		<div class="content">
 			<div class="top">
 				<img src="./images/icon_open_logo@2x.png" class="logo">
-				<a href="javascript:;">打开APP</a>
+				<a href="javascript:$('.confirm').show();">打开APP</a>
 			</div>
 			<div class="binner">
 				<div class="mb" style="background: url(http://pic.qqtn.com/up/2018-7/2018071309454626215.jpg); background-position: center; background-repeat: no-repeat; background-size: 100% auto;"></div>
@@ -44,29 +63,46 @@
 			</div>
 			<p class="list_title">音频列表</p>
 			<ul class="list_box"></ul>
+			<div class="more_program">
+				<a href="javascript:$('.confirm').show();">查看更多热门节目</a>
+			</div>
 		</div>
 	</div>
+
+	<div class="confirm">
+      	<div class="confirm-wrapper">
+        	<div class="confirm-content">
+          		<p class="text">确定要打开APP吗？</p>
+          		<div class="operate">
+            		<div onclick="$('.confirm').fadeOut(200)" class="operate-btn left">取消</div>
+            		<div onclick="openApp()" class="operate-btn" style="color: #FF5A1C;">确定</div>
+          		</div>
+        	</div>
+      	</div>
+    </div>
+
+    <div class="layer">
+    	<img src="images/icon_browser@2x.png" alt="">
+    </div>
 	
 	<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
-	<script type="text/javascript" src="https://unpkg.com/better-scroll/dist/bscroll.min.js"></script>
+	<script type="text/javascript" src="./js/openApp.js"></script>
+	<!-- <script src="https://cdn.bootcss.com/vConsole/3.2.0/vconsole.min.js"></script> -->
 	<script type="text/javascript">
 		$(function() {
-			var wrapper = document.querySelector('.wrapper');
-			var scroll = new BScroll(wrapper, {
-				click: true
-			});
+			// 初始化
+  			// var vConsole = new VConsole();
 			
 			$.ajax({
-				url: './mock/audio_list.json'
-			}).done((res) => {
+				url: '/mock/audio_list.json'
+			}).done(function(res) {
 				var divs = '';
-				$.each(res, (index, item) => {
+				$.each(res, function(index, item) {
 					divs += '<li><a href="./audio_playing.html"><p class="title">'+item.audio_name+'<span>'+item.release_time+'</span></p>';
 					divs += '<p class="data">时长：<span>'+item.audio_len+'</span>';
 					divs += '播放：<span>'+item.play_num+'</span></p></a></li>';
 				})
 				$('.list_box').append(divs);
-				scroll.refresh();
 			})
 
 			// 打开和收起详情
@@ -74,15 +110,11 @@
 				var isClass = $('.arrow_pic').hasClass('up_detail');
 				if (isClass) {
 					$('.arrow_pic').removeClass('up_detail');
-					$(this).stop(true).animate({height: 70 + 'px'}, 200, function() {
-						scroll.refresh();
-					});
+					$(this).stop(true).animate({height: 70 + 'px'}, 200);
 				} else {
 					$('.arrow_pic').addClass('up_detail');
 					var heiget = $(this).find('.detail').innerHeight() + 14;
-					$(this).stop(true).animate({height: heiget + 'px'}, 200, function() {
-						scroll.refresh();
-					});
+					$(this).stop(true).animate({height: heiget + 'px'}, 200);
 				}
 			})
 		})

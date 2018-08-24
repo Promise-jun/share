@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>分享电台-出错</title>
+    <link rel="stylesheet" type="text/css" href="./css/index.css">
+    <style type="text/css">
+        body {
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+        }
+        .error_tool img {
+            display: block;
+            width: 214px;
+            margin: 25% auto 0;
+        }
+        .error_tool p {
+            padding-top: 20px;
+            text-align: center;
+            font-family: PingFangSC-Medium;
+            font-size: 18px;
+            color: #919191;
+            letter-spacing: 0.5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="content">
+            <div class="top shadow">
+                <img src="images/icon_open_logo@2x.png" class="logo">
+                <a href="javascript:$('.confirm').show();">打开APP</a>
+            </div>
+            <div class="error_tool">
+                <img src="images/icon_404_bg@2x.png">
+                <p>当前页面找不到了～</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="confirm">
+        <div class="confirm-wrapper">
+            <div class="confirm-content">
+                <p class="text">确定要打开APP吗？</p>
+                <div class="operate">
+                    <div onclick="$('.confirm').fadeOut(200)" class="operate-btn left">取消</div>
+                    <div onclick="openApp()" class="operate-btn" style="color: #FF5A1C;">确定</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="layer">
+        <img src="images/icon_browser@2x.png" alt="">
+    </div>
+
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/openApp.js"></script>
+</body>
+
+</html>
