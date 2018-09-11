@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* ==== css reset ==== */
 html,
 body,
@@ -731,11 +732,437 @@ a:link {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.4);
+  z-index: 3;
 }
 .layer img {
   display: block;
   margin: 20px auto;
   width: 240px;
+}
+
+.dynamic {
+  font-family: PingFangSC-Medium;
+  line-height: normal;
+  background-color: #f0f0f0;
+}
+.dynamic > div {
+  background-color: #fff;
+}
+.dynamic .header {
+  padding: 18px 15px 10px;
+  overflow: hidden;
+}
+.dynamic .header .left {
+  float: left;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.dynamic .header .left img {
+  width: 100%;
+}
+.dynamic .header .right {
+  margin-left: 45px;
+}
+.dynamic .header .right .author {
+  overflow: hidden;
+  padding-bottom: 1px;
+}
+.dynamic .header .right .name {
+  float: left;
+  font-size: 15px;
+  color: #303030;
+}
+.dynamic .header .right .sex {
+  float: left;
+  width: 14px;
+  height: 14px;
+  margin-left: 4px;
+  margin-top: 3px;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.dynamic .header .right .sex.woman {
+  background-image: url("../images/girl.png");
+}
+.dynamic .header .right .sex.man {
+  background-image: url("../images/boy.png");
+}
+.dynamic .header .right .time {
+  font-size: 12px;
+  color: #919191;
+}
+.dynamic .content .title {
+  padding: 0 15px;
+  font-size: 18px;
+  color: #303030;
+}
+.dynamic .content .text {
+  padding: 5px 15px 0;
+  font-size: 14px;
+  color: #696969;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+.dynamic .content .check_detail {
+  display: inline-block;
+  padding: 6px 15px 10px;
+  font-size: 14px;
+  color: #5192C9;
+}
+.dynamic .footer {
+  overflow: hidden;
+  padding: 0 13px 12px 15px;
+}
+.dynamic .footer a {
+  padding: 0;
+  height: 20px;
+  font-size: 12px;
+  color: #919191;
+}
+.dynamic .footer a span {
+  margin-right: 8px;
+}
+.dynamic .footer a .weui-cell__ft {
+  font-size: 0;
+}
+.dynamic .footer a .weui-cell__ft img {
+  border: 1px solid #fff;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+.dynamic .footer a .weui-cell__ft img:not(:last-child) {
+  margin-right: -6px;
+}
+.dynamic .pic_list {
+  padding: 8px 12px 8px 15px;
+  overflow: hidden;
+}
+.dynamic .pic_list div {
+  width: 32%;
+  margin-right: 3px;
+  margin-bottom: 3px;
+  float: left;
+  overflow: hidden;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  cursor: pointer;
+}
+.dynamic .audio_box {
+  padding: 8px 15px 15px;
+}
+
+.audio_bar {
+  cursor: pointer;
+  width: 180px;
+  height: 30px;
+  background: #6CC5FA;
+  border-radius: 8px;
+  box-shadow: 0 10px 15px -10px #6CC5FA;
+}
+.audio_bar.opacity_bar {
+  animation: opacityBar 1.2s linear infinite;
+  -webkit-animation: opacityBar 1.2s linear infinite;
+  /* Safari 和 Chrome */
+}
+.audio_bar i {
+  width: 15px;
+  height: 15px;
+  float: left;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-top: 8px;
+}
+.audio_bar .icon_audio {
+  margin-left: 8px;
+  background-image: url("../images/icon_listen_voice@2x.png");
+}
+.audio_bar .icon_audio.load_audio {
+  animation: loadAudio 0.5s linear infinite;
+  -webkit-animation: loadAudio 0.5s linear infinite;
+  /* Safari 和 Chrome */
+  background-image: url("../images/icon_voice_loading@2x.png");
+}
+.audio_bar .icon_audio_2 {
+  margin-left: 5px;
+  background-image: url("../images/icon_listen_voice_2@2x.png");
+}
+.audio_bar .time {
+  float: right;
+  margin-right: 8px;
+  line-height: 30px;
+  font-size: 12px;
+  color: #FFFFFF !important;
+}
+
+.photo-container {
+  justify-content: center;
+}
+.photo-container img {
+  max-height: 100%;
+}
+
+.weui-photo-browser-modal {
+  z-index: 3;
+}
+
+.criticism_box {
+  margin-top: 9px;
+  background-color: #fff;
+  font-family: PingFangSC-Medium;
+}
+.criticism_box h4 {
+  padding: 15px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #919191;
+  position: relative;
+}
+.criticism_box h4:before {
+  content: " ";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 1px;
+  border-bottom: 1px solid #D7D7D7;
+  color: #D7D7D7;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+  -webkit-transform: scaleY(0.5);
+  transform: scaleY(0.5);
+  z-index: 2;
+}
+.criticism_box .criticism_list {
+  position: relative;
+}
+.criticism_box .criticism_list:before {
+  content: " ";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 1px;
+  border-bottom: 1px solid #D7D7D7;
+  color: #D7D7D7;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+  -webkit-transform: scaleY(0.5);
+  transform: scaleY(0.5);
+  z-index: 2;
+}
+.criticism_box .criticism_list li {
+  padding: 15px 0 0 12px;
+  overflow: hidden;
+}
+.criticism_box .criticism_list li:not(:last-child) .right:before {
+  content: " ";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 1px;
+  border-bottom: 1px solid #D7D7D7;
+  color: #D7D7D7;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+  -webkit-transform: scaleY(0.5);
+  transform: scaleY(0.5);
+  z-index: 2;
+}
+.criticism_box .criticism_list .left {
+  float: left;
+  width: 40px;
+  position: relative;
+}
+.criticism_box .criticism_list img {
+  display: block;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+.criticism_box .criticism_list .icon_zxs {
+  width: 100%;
+  height: 14px;
+  background: url("../images/icon_counselor_sign@2x.png") no-repeat center;
+  background-size: contain;
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+}
+.criticism_box .criticism_list .icon_zb {
+  width: 100%;
+  height: 14px;
+  background: url("../images/icon_anchor@2x.png") no-repeat center;
+  background-size: contain;
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+}
+.criticism_box .criticism_list .right {
+  padding-right: 15px;
+  padding-bottom: 15px;
+  line-height: normal;
+  margin-left: 48px;
+  position: relative;
+}
+.criticism_box .criticism_list .right .author {
+  overflow: hidden;
+  padding-bottom: 1px;
+}
+.criticism_box .criticism_list .right .name {
+  float: left;
+  font-size: 15px;
+  color: #303030;
+}
+.criticism_box .criticism_list .right .sex {
+  float: left;
+  width: 14px;
+  height: 14px;
+  margin-left: 4px;
+  margin-top: 3px;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.criticism_box .criticism_list .right .sex.woman {
+  background-image: url("../images/girl.png");
+}
+.criticism_box .criticism_list .right .sex.man {
+  background-image: url("../images/boy.png");
+}
+.criticism_box .criticism_list .right .time {
+  font-size: 12px;
+  color: #919191;
+}
+.criticism_box .criticism_list .right .quote {
+  margin-top: 8px;
+  padding: 8px 6px;
+  background: #F3F8F7;
+}
+.criticism_box .criticism_list .right .quote span:first-child {
+  color: #FF5A1C;
+}
+.criticism_box .criticism_list .right .quote span {
+  font-size: 12px;
+  color: #919191;
+  line-height: normal;
+}
+.criticism_box .criticism_list .right .quote .icon_v {
+  display: inline-block;
+  vertical-align: middle;
+  width: 12px;
+  height: 16px;
+  background: url("../images/icon_v@2x.png") no-repeat center top;
+  background-size: contain;
+}
+.criticism_box .criticism_list .right .quote .audio_bar {
+  width: 150px;
+  display: inline-block;
+  vertical-align: top;
+}
+.criticism_box .criticism_list .right .quote .audio_bar .time {
+  margin-top: 8px;
+}
+.criticism_box .criticism_list .right .content {
+  padding-top: 8px;
+  font-size: 12px;
+  color: #696969;
+  letter-spacing: 0.33px;
+}
+
+.more_program {
+  padding: 12px 0;
+  background-color: #fff;
+  text-align: center;
+}
+.more_program a {
+  display: inline-block;
+  width: 85%;
+  height: 36px;
+  line-height: 36px;
+  border: 1px solid #FF5A1C;
+  border-radius: 50px;
+  font-family: PingFangSC-Medium;
+  font-size: 14px;
+  color: #FF5A1C;
+  letter-spacing: 0.4px;
+}
+
+@keyframes opacityBar {
+  0% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}
+@-webkit-keyframes opacityBar {
+  0% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}
+@keyframes loadAudio {
+  0% {
+    transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    /* IE 9 */
+    -moz-transform: rotate(0deg);
+    /* Firefox */
+    -webkit-transform: rotate(0deg);
+    /* Safari 和 Chrome */
+    -o-transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    /* IE 9 */
+    -moz-transform: rotate(360deg);
+    /* Firefox */
+    -webkit-transform: rotate(360deg);
+    /* Safari 和 Chrome */
+    -o-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes loadAudio {
+  0% {
+    transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    /* IE 9 */
+    -moz-transform: rotate(0deg);
+    /* Firefox */
+    -webkit-transform: rotate(0deg);
+    /* Safari 和 Chrome */
+    -o-transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    /* IE 9 */
+    -moz-transform: rotate(360deg);
+    /* Firefox */
+    -webkit-transform: rotate(360deg);
+    /* Safari 和 Chrome */
+    -o-transform: rotate(360deg);
+  }
 }
 
 /*# sourceMappingURL=index.css.map */
