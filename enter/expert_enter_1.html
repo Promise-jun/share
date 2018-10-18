@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>情说微课-全部评价</title>
+    <meta name="viewport" content="width = device-width, initial-scale = 1.0, maximum-scale = 1.0, user-scalable = 0" />
+    <!-- head 中 -->
+    <link rel="stylesheet" type="text/css" href="../css/weui.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/jquery-weui.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/expert_enter.css">
+    <script type="text/javascript">
+        (function(doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ?
+                'orientationchange' :
+                'resize',
+                recalc = function() {
+                    var clientWidth = docEl.clientWidth
+                    if (!clientWidth) return
+                    docEl.style.fontSize = clientWidth / 18.75 + 'px'
+                }
+            if (!doc.addEventListener) return
+            win.addEventListener(resizeEvt, recalc, false)
+            doc.addEventListener('DOMContentLoaded', recalc, false)
+        })(document, window)
+    </script>
+</head>
+
+<body>
+    <!-- 申请进度 -->
+    <div class="weui-flex schedule">
+        <div class="weui-flex__item step_active">
+            <div class="step">
+                <span class="pic">1</span>
+            </div>
+            <div>基本信息</div>
+        </div>
+        <div class="weui-flex__item">
+            <div class="step">
+                <span class="pic">2</span>
+                <span class="line"></span>
+            </div>
+            <div>从业背景</div>
+        </div>
+        <div class="weui-flex__item">
+            <div class="step">
+                <span class="pic">3</span>
+                <span class="line"></span>
+            </div>
+            <div>头像照片</div>
+        </div>
+        <div class="weui-flex__item">
+            <div class="step">
+                <span class="pic">4</span>
+                <span class="line"></span>
+            </div>
+            <div>提交审核</div>
+        </div>
+    </div>
+
+    <div class="weui-cells weui-cells_form form_box">
+        <div class="weui-cell">
+            <div class="weui-cell__hd"><label class="weui-label">姓名</label></div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" type="text" placeholder="请输入姓名">
+            </div>
+        </div>
+        <div class="weui-cell weui-cell_access">
+            <div class="weui-cell__hd"><label class="weui-label">性别</label></div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" type="text" name="user-sex" placeholder="请选择性别">
+            </div>
+            <div class="weui-cell__ft"></div>
+        </div>
+        <div class="weui-cell weui-cell_access">
+            <div class="weui-cell__hd"><label class="weui-label">生日</label></div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" type="text" name="user-birthday" placeholder="请选择生日">
+            </div>
+            <div class="weui-cell__ft"></div>
+        </div>
+        <div class="weui-cell weui-cell_access">
+            <div class="weui-cell__hd"><label class="weui-label">城市</label></div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" type="text" name="user-city" placeholder="请选择城市">
+            </div>
+            <div class="weui-cell__ft"></div>
+        </div>
+        <div class="weui-cell">
+            <div class="weui-cell__hd"><label class="weui-label">手机号</label></div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" type="tel" name="user-phone" placeholder="请输入手机号">
+            </div>
+        </div>
+        <div class="weui-cell">
+            <div class="weui-cell__hd"><label class="weui-label">微信号</label></div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" type="text" name="user-wechat" placeholder="请输入微信号">
+            </div>
+        </div>
+    
+        <div class="margin-bottom"></div>
+
+        <div class="weui-cell">
+            <div class="weui-cell__hd"><label class="weui-label">毕业学校</label></div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" type="text" name="user-school" placeholder="请填写毕业院校">
+            </div>
+        </div>
+        <div class="weui-cell">
+            <div class="weui-cell__hd"><label class="weui-label">专业</label></div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" type="text" name="user-specialty" placeholder="请填写专业">
+            </div>
+        </div>
+        <div class="weui-cell weui-cell_access">
+            <div class="weui-cell__hd"><label class="weui-label">学历</label></div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" type="text" name="user-xl" placeholder="请选择学历">
+            </div>
+            <div class="weui-cell__ft"></div>
+        </div>
+        <div class="weui-cell pic-container">
+            <div class="title">学历证书</div>
+            <div class="pic-box">
+                <ul class="pic-list"></ul>
+                <div class="add-pic">
+                    <input id="xlzsFile" type="file" name="user-xlzs" accept="image/*" onchange="upload('#xlzsFile');" />
+                </div>
+            </div>
+        </div>
+
+        <div class="margin-bottom"></div>
+
+        <div class="weui-cell weui-cell_access">
+            <div class="weui-cell__hd"><label class="weui-label">证件类型</label></div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" type="text" name="user-zjtype" placeholder="请选择证件类型">
+            </div>
+            <div class="weui-cell__ft"></div>
+        </div>
+        <div class="weui-cell">
+            <div class="weui-cell__hd"><label class="weui-label">证件号</label></div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" type="text" name="user-zjnum" placeholder="请填写证件号">
+            </div>
+        </div>
+        <div class="weui-cell pic-container">
+            <div class="title">证件照片</div>
+            <div class="pic-box">
+                <div>
+                    <ul class="pic-list"></ul>
+                    <div class="add-pic">
+                        <input id="zPic" type="file" name="user-zpic" accept="image/*" onchange="upload('#zPic');" />
+                    </div>
+                    <div class="tool">正面</div>
+                </div>
+                <div>
+                    <ul class="pic-list"></ul>
+                    <div class="add-pic">
+                        <input id="fPic" type="file" name="user-fpic" accept="image/*" onchange="upload('#fPic');" />
+                    </div>
+                    <div class="tool">反面</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="margin-bottom"></div>
+
+        <div class="weui-cell weui-cell_access">
+            <div class="weui-cell__hd"><label class="weui-label">如何了解到我们</label></div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" type="text" name="user-knowus" placeholder="请选择如何了解到我们">
+            </div>
+            <div class="weui-cell__ft"></div>
+        </div>
+        <div class="weui-cell">
+            <div class="weui-cell__hd"><label class="weui-label">推荐人</label></div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" type="text" name="user-referee" placeholder="推荐人姓名（选填）">
+            </div>
+        </div>
+
+        <div class="btn-box">
+            <a href="expert_enter_2.html" id="nextOne">下一步</a>
+        </div>
+    </div>
+    <!-- body 最后 -->
+    <script type="text/javascript" src="../js/jquery-2.1.4.js"></script>
+    <script type="text/javascript" src="../js/jquery-weui.min.js"></script>
+    <script type="text/javascript" src="../js/city-picker.min.js"></script>
+    <script type="text/javascript" src="../js/expert_enter.js"></script>
+</body>
+
+</html>
