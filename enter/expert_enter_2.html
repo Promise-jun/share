@@ -10,20 +10,20 @@
     <link rel="stylesheet" type="text/css" href="../css/jquery-weui.min.css">
     <link rel="stylesheet" type="text/css" href="../css/expert_enter.css">
     <script type="text/javascript">
-        (function(doc, win) {
-            var docEl = doc.documentElement,
-                resizeEvt = 'orientationchange' in window ?
-                'orientationchange' :
-                'resize',
-                recalc = function() {
-                    var clientWidth = docEl.clientWidth
-                    if (!clientWidth) return
-                    docEl.style.fontSize = clientWidth / 18.75 + 'px'
-                }
-            if (!doc.addEventListener) return
-            win.addEventListener(resizeEvt, recalc, false)
-            doc.addEventListener('DOMContentLoaded', recalc, false)
-        })(document, window)
+    (function(doc, win) {
+        var docEl = doc.documentElement,
+            resizeEvt = 'orientationchange' in window ?
+            'orientationchange' :
+            'resize',
+            recalc = function() {
+                var clientWidth = docEl.clientWidth
+                if (!clientWidth) return
+                docEl.style.fontSize = clientWidth / 18.75 + 'px'
+            }
+        if (!doc.addEventListener) return
+        win.addEventListener(resizeEvt, recalc, false)
+        doc.addEventListener('DOMContentLoaded', recalc, false)
+    })(document, window)
     </script>
 </head>
 
@@ -58,7 +58,6 @@
             <div>提交审核</div>
         </div>
     </div>
-
     <div class="weui-cells weui-cells_form form_box">
         <div class="weui-cell weui-cell_access">
             <div class="weui-cell__hd"><label class="weui-label">职业背景</label></div>
@@ -81,7 +80,7 @@
             </div>
         </div>
         <div class="weui-cell pic-container">
-            <div class="title">资质证证明（照片）</div>
+            <div class="title">资质证证明（照片）<a href="javascript:;" data-src="../images/example/example_1.png" onclick="openPicExample(this)" class="example">示例</a></div>
             <div class="pic-box">
                 <ul class="pic-list"></ul>
                 <div class="add-pic">
@@ -101,17 +100,12 @@
 
         <div class="margin-bottom"></div>
 
-        <div class="weui-cell">
-            <div class="weui-cell__hd"><label class="weui-label">从业年限</label></div>
+        <div class="weui-cell weui-cell_access">
+            <div class="weui-cell__hd"><label class="weui-label">从业时间</label></div>
             <div class="weui-cell__bd">
-                <input class="weui-input" type="number" name="user-age-limit" placeholder="请输入从业年限">
+                <input class="weui-input" name="user-age-time" placeholder="请选择从业时间">
             </div>
-        </div>
-        <div class="weui-cell">
-            <div class="weui-cell__hd"><label class="weui-label">累计证明</label></div>
-            <div class="weui-cell__bd">
-                <input class="weui-input" type="number" name="user-ljzm" placeholder="机构证明书等材料均可（小字提示）">
-            </div>
+            <div class="weui-cell__ft"></div>
         </div>
         <div class="weui-cell">
             <div class="weui-cell__hd"><label class="weui-label">累计个案（小时）</label></div>
@@ -122,22 +116,82 @@
 
         <div class="margin-bottom"></div>
 
-        <div class="weui-cell weui-cell_access">
-            <div class="weui-cell__hd"><label class="weui-label">如何了解到我们</label></div>
-            <div class="weui-cell__bd">
-                <input class="weui-input" type="text" name="user-knowus" placeholder="请选择如何了解到我们">
+        <div class="training-box">
+            <div class="tool">年/月/日 师从**参加**培训</div>
+            <div id="trainingList">
+                
             </div>
-            <div class="weui-cell__ft"></div>
+            <div class="weui-cell training-inp">
+                <div class="weui-cell__bd">
+                    <input class="weui-input" type="text" placeholder="请输入您的受训背景">
+                </div>
+            </div>
+            <a href="javascript:;" class="training-btn">+受训背景</a>
         </div>
-        <div class="weui-cell">
-            <div class="weui-cell__hd"><label class="weui-label">推荐人</label></div>
-            <div class="weui-cell__bd">
-                <input class="weui-input" type="text" name="user-referee" placeholder="推荐人姓名（选填）">
+
+        <div class="margin-bottom"></div>
+
+        <div class="weui-cells weui-cells_form">
+            <div class="weui-cell">
+                <div class="weui-cell__bd">
+                    <div class="weui-uploader">
+                        <div class="weui-uploader__hd">
+                            <p class="weui-uploader__title">培训证明(可上传多张）</p>
+                        </div>
+                        <div class="weui-uploader__bd">
+                            <ul class="weui-uploader__files" id="uploaderFiles">
+
+                            </ul>
+                            <div class="weui-uploader__input-box">
+                                <input id="uploaderInput" class="weui-uploader__input" type="file" accept="image/*" multiple="" onchange="uploads('#uploaderInput');">
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
+        <div class="margin-bottom"></div>
+
+        <div class="weui-cell">
+            <div class="weui-cell__hd"><label class="weui-label">专业背景</label></div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" type="text" name="user-specialty-bg" placeholder="请输入专业背景">
+            </div>
+            <div class="weui-cell__ft"><a href="javascript:;" class="example" onclick="openPicExample('specialty')">示例</a></div>
+        </div>
+        <div class="weui-cell">
+            <div class="weui-cell__hd"><label class="weui-label">擅长领域</label></div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" type="text" name="user-scly" placeholder="请输入擅长领域">
+            </div>
+            <div class="weui-cell__ft"><a href="javascript:;" class="example" onclick="openPicExample('scly')">示例</a></div>
+        </div>
+        <div class="weui-cell">
+            <div class="weui-cell__hd"><label class="weui-label">咨询风格</label></div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" type="text" name="user-zxfg" placeholder="参照示例填写">
+            </div>
+            <div class="weui-cell__ft"><a href="javascript:;" class="example" onclick="openPicExample('zxfg')">示例</a></div>
+        </div>
+
         <div class="btn-box">
-            <a href="expert_enter_2.html" id="nextOne">下一步</a>
+            <a href="expert_enter_3.html" id="nextOne">下一步</a>
+        </div>
+    </div>
+    <!-- 图片示例 -->
+    <div class="pic_popup">
+        <div class="pic_box">
+            <a href="javascript:;" onclick="$('.pic_popup').fadeOut(200);" class="close"></a>
+            <img src="">
+        </div>
+    </div>
+    <!-- 文字示例 -->
+    <div class="text_popup">
+        <div class="text_box">
+            <img src="../images/icon_tips_bg@2x.png">
+            <div class="text-content" id="textCont"></div>
+            <a href="javascript:;" onclick="$('.text_popup').fadeOut(200);" class="close">关闭</a>
         </div>
     </div>
     <!-- body 最后 -->
