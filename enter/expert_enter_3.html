@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>情说微课-全部评价</title>
+    <meta name="viewport" content="width = device-width, initial-scale = 1.0, maximum-scale = 1.0, user-scalable = 0" />
+    <!-- head 中 -->
+    <link rel="stylesheet" type="text/css" href="../css/weui.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/jquery-weui.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/expert_enter.css">
+    <script type="text/javascript">
+    (function(doc, win) {
+        var docEl = doc.documentElement,
+            resizeEvt = 'orientationchange' in window ?
+            'orientationchange' :
+            'resize',
+            recalc = function() {
+                var clientWidth = docEl.clientWidth
+                if (!clientWidth) return
+                docEl.style.fontSize = clientWidth / 18.75 + 'px'
+            }
+        if (!doc.addEventListener) return
+        win.addEventListener(resizeEvt, recalc, false)
+        doc.addEventListener('DOMContentLoaded', recalc, false)
+    })(document, window)
+    </script>
+</head>
+
+<body>
+    <!-- 申请进度 -->
+    <div class="weui-flex schedule">
+        <div class="weui-flex__item step_active">
+            <div class="step">
+                <span class="pic">1</span>
+            </div>
+            <div>基本信息</div>
+        </div>
+        <div class="weui-flex__item step_active">
+            <div class="step">
+                <span class="pic">2</span>
+                <span class="line"></span>
+            </div>
+            <div>从业背景</div>
+        </div>
+        <div class="weui-flex__item step_active">
+            <div class="step">
+                <span class="pic">3</span>
+                <span class="line"></span>
+            </div>
+            <div>头像照片</div>
+        </div>
+        <div class="weui-flex__item">
+            <div class="step">
+                <span class="pic">4</span>
+                <span class="line"></span>
+            </div>
+            <div>提交审核</div>
+        </div>
+    </div>
+    <div class="weui-cells weui-cells_form form_box">
+
+        <div class="upload_head">
+            <img src="../images/icon_head_portrait@2x.png">
+            <a href="javascript:;" onclick="$('#uploadHead').click();"></a>
+            <input id="uploadHead" type="file" name="user-head" style="display: none;" accept="image/*" onchange="uploadHead('#uploadHead');" />
+        </div>
+        
+        <div class="weui-cell pic-container">
+            <div class="title">头像上传要求：<a href="javascript:;" data-src="https://image.qingshuo.com/photo/2018/04/19/27782c36bdabf43cb9b3feb6d365987b.jpg?imageMogr2/scrop/398x356/crop/398x356" onclick="openPicExample(this)" class="example">示例</a></div>
+            <div class="head_tool">
+                <p>1.照片清晰，小于5M</p>
+                <p>2.人像居中且至少漏出肩部</p>
+                <p>3.能体现您的专业与和善</p>
+            </div>
+        </div>
+
+        <div class="btn-box">
+            <div class="weui-flex">
+                <div class="weui-flex__item prev-two">
+                    <a href="expert_enter_2.html" id="prevThree">上一步</a>
+                </div>
+                <div class="weui-flex__item next-two">
+                    <a href="expert_enter_4.html" id="nextThree">提交审核</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 图片示例 -->
+    <div class="pic_popup">
+        <div class="pic_box">
+            <a href="javascript:;" onclick="$('.pic_popup').fadeOut(200);" class="close"></a>
+            <img src="">
+        </div>
+    </div>
+    <!-- body 最后 -->
+    <script type="text/javascript" src="../js/jquery-2.1.4.js"></script>
+    <script type="text/javascript" src="../js/jquery-weui.min.js"></script>
+    <script type="text/javascript" src="../js/city-picker.min.js"></script>
+    <script type="text/javascript" src="../js/expert_enter.js"></script>
+</body>
+
+</html>

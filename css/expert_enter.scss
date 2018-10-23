@@ -224,6 +224,26 @@ html, body {
 			font-size: 18px;
 			color: #FFFFFF;
 		}
+		& .tool {
+			padding-bottom: 8px;
+			text-align: center;
+			font-size: 12px;
+			color: #696969;
+		}
+		& .prev-two {
+			padding-right: 15px;
+			& a {
+				height: 44px;
+				line-height: 44px;
+				background: #fff;
+				color: $mainColor;
+				border: 1px solid $mainColor;
+				border-radius: 25px;
+			}
+		}
+		& .next-two>a {
+			border-radius: 25px;
+		}
 	}
 }
 
@@ -408,4 +428,70 @@ html, body {
 		color: #FF5A1C;
 		letter-spacing: 0.45px;
 	}
+}
+
+// 上传头像
+.upload_head {
+	width: 115px;
+	height: 115px;
+	margin: 15px auto 25px;
+	position: relative;
+	display: -webkit-flex; /* Safari */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	& img {
+		width: 100%;
+		border-radius: 50%;
+	}
+	& a {
+		width: 47px;
+		height: 47px;
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		background: url('../images/icon_add_head_portrait@2x.png') no-repeat center;
+		background-size: contain;
+	}
+}
+.head_tool>p {
+	padding-top: 10px;
+	font-size: 14px;
+	color: #696969;
+	letter-spacing: 0.4px;
+}
+
+.submit-pic {
+	display: block;
+	width: 110px;
+	height: auto;
+	margin: 100px auto 18px;
+}
+.auditing-box {
+	text-align: center;
+	font-size: 14px;
+	color: #696969;
+	& .title {
+		padding-bottom: 10px;
+		font-size: 18px;
+	}
+	& .submit-success>.title {
+		color: #303030;
+	}
+	& .submit-fail>.title {
+		color: #FF0528;
+	}
+}
+.change-info-btn {
+	position: fixed;
+	left: 8%;
+	bottom: 30px;
+	width: 84%;
+	height: 46px;
+	line-height: 46px;
+	text-align: center;
+	background: $mainColor;
+	border-radius: 50px;
+	font-size: 18px;
+	color: #FFFFFF;
 }

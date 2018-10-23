@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>情说微课-全部评价</title>
+    <meta name="viewport" content="width = device-width, initial-scale = 1.0, maximum-scale = 1.0, user-scalable = 0" />
+    <!-- head 中 -->
+    <link rel="stylesheet" type="text/css" href="../css/weui.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/jquery-weui.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/expert_enter.css">
+    <script type="text/javascript">
+    (function(doc, win) {
+        var docEl = doc.documentElement,
+            resizeEvt = 'orientationchange' in window ?
+            'orientationchange' :
+            'resize',
+            recalc = function() {
+                var clientWidth = docEl.clientWidth
+                if (!clientWidth) return
+                docEl.style.fontSize = clientWidth / 18.75 + 'px'
+            }
+        if (!doc.addEventListener) return
+        win.addEventListener(resizeEvt, recalc, false)
+        doc.addEventListener('DOMContentLoaded', recalc, false)
+    })(document, window)
+    </script>
+</head>
+
+<body>
+    <!-- 申请进度 -->
+    <div class="weui-flex schedule">
+        <div class="weui-flex__item step_active">
+            <div class="step">
+                <span class="pic">1</span>
+            </div>
+            <div>基本信息</div>
+        </div>
+        <div class="weui-flex__item step_active">
+            <div class="step">
+                <span class="pic">2</span>
+                <span class="line"></span>
+            </div>
+            <div>从业背景</div>
+        </div>
+        <div class="weui-flex__item step_active">
+            <div class="step">
+                <span class="pic">3</span>
+                <span class="line"></span>
+            </div>
+            <div>头像照片</div>
+        </div>
+        <div class="weui-flex__item step_active">
+            <div class="step">
+                <span class="pic">4</span>
+                <span class="line"></span>
+            </div>
+            <div>提交审核</div>
+        </div>
+    </div>
+    
+    <img src="../images/gain.png" class="submit-pic">
+    <div class="auditing-box">
+        <!-- 提交审核成功 -->
+        <!-- <div class="submit-success">
+            <p class="title">提交审核成功</p>
+            <p class="tool">我们正在审核你的资料</p>
+        </div> -->
+        <!-- 提交审核未通过 -->
+        <div class="submit-fail">
+            <p class="title">提交审核未通过</p>
+            <p class="tool">你的手机号不存在，请重新填写后提交审核</p>
+        </div>
+    </div>
+    
+    <!-- 提交审核未通过 -->
+    <a href="expert_enter_1.html" class="change-info-btn">修改信息</a>
+    
+    <!-- body 最后 -->
+    <script type="text/javascript" src="../js/jquery-2.1.4.js"></script>
+    <script type="text/javascript" src="../js/jquery-weui.min.js"></script>
+    <script type="text/javascript" src="../js/city-picker.min.js"></script>
+    <script type="text/javascript" src="../js/expert_enter.js"></script>
+</body>
+
+</html>

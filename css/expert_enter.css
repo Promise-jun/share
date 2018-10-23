@@ -207,6 +207,26 @@ html, body {
   font-size: 18px;
   color: #FFFFFF;
 }
+.form_box .btn-box .tool {
+  padding-bottom: 8px;
+  text-align: center;
+  font-size: 12px;
+  color: #696969;
+}
+.form_box .btn-box .prev-two {
+  padding-right: 15px;
+}
+.form_box .btn-box .prev-two a {
+  height: 44px;
+  line-height: 44px;
+  background: #fff;
+  color: #FD7A60;
+  border: 1px solid #FD7A60;
+  border-radius: 25px;
+}
+.form_box .btn-box .next-two > a {
+  border-radius: 25px;
+}
 
 .example {
   float: right;
@@ -395,6 +415,75 @@ html, body {
   font-size: 16px;
   color: #FF5A1C;
   letter-spacing: 0.45px;
+}
+
+.upload_head {
+  width: 115px;
+  height: 115px;
+  margin: 15px auto 25px;
+  position: relative;
+  display: -webkit-flex;
+  /* Safari */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.upload_head img {
+  width: 100%;
+  border-radius: 50%;
+}
+.upload_head a {
+  width: 47px;
+  height: 47px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  background: url("../images/icon_add_head_portrait@2x.png") no-repeat center;
+  background-size: contain;
+}
+
+.head_tool > p {
+  padding-top: 10px;
+  font-size: 14px;
+  color: #696969;
+  letter-spacing: 0.4px;
+}
+
+.submit-pic {
+  display: block;
+  width: 110px;
+  height: auto;
+  margin: 100px auto 18px;
+}
+
+.auditing-box {
+  text-align: center;
+  font-size: 14px;
+  color: #696969;
+}
+.auditing-box .title {
+  padding-bottom: 10px;
+  font-size: 18px;
+}
+.auditing-box .submit-success > .title {
+  color: #303030;
+}
+.auditing-box .submit-fail > .title {
+  color: #FF0528;
+}
+
+.change-info-btn {
+  position: fixed;
+  left: 8%;
+  bottom: 30px;
+  width: 84%;
+  height: 46px;
+  line-height: 46px;
+  text-align: center;
+  background: #FD7A60;
+  border-radius: 50px;
+  font-size: 18px;
+  color: #FFFFFF;
 }
 
 /*# sourceMappingURL=expert_enter.css.map */

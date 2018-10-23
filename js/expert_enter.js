@@ -221,7 +221,7 @@ var uploads = function(c) {
     })  
 }
 //打开文字示例
-var openPicExample = function(name) {
+var openTextExample = function(name) {
     var textCont = document.getElementById('textCont');
     textCont.innerHTML = '';
     if (name === 'specialty') { //专业背景
@@ -247,4 +247,16 @@ var openPicExample = function(name) {
         textCont.appendChild(p1);
     }
     $('.text_popup').fadeIn(200);
+}
+// 上传头像
+var uploadHead = function(c) {
+    "use strict";
+    var $c = document.querySelector(c),
+        file = $c.files[0],
+        reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = function(e) {
+        // $d.setAttribute("src", e.target.result);
+        $('.upload_head img').attr('src', e.target.result);
+    };
 }
