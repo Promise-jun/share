@@ -66,34 +66,29 @@
             </div>
             <div class="weui-cell__ft"></div>
         </div>
-        <div class="weui-cell weui-cell_access">
-            <div class="weui-cell__hd"><label class="weui-label">资质认证</label></div>
-            <div class="weui-cell__bd">
-                <input class="weui-input" name="user-aptitude" placeholder="请选择资质（可多选）">
-            </div>
-            <div class="weui-cell__ft"></div>
+
+        <!-- 资质认证列表 -->
+        <div class="aptitude-box">
+            <div class="aptitude-title">请添加资质信息<a href="javascript:;" class="add-aptitude" onclick="openAddAptitude()">添加资质</a></div>
+            <div class="aptitude-list" id="aptitudeList"></div>
         </div>
-        <div class="weui-cell">
-            <div class="weui-cell__hd"><label class="weui-label">资质编号</label></div>
-            <div class="weui-cell__bd">
-                <input class="weui-input" type="text" name="user-aptitude-num" placeholder="请输入资质编号">
-            </div>
-        </div>
-        <div class="weui-cell pic-container">
-            <div class="title">资质证证明（照片）<a href="javascript:;" data-src="../images/example/example_1.png" onclick="openPicExample(this)" class="example">示例</a></div>
-            <div class="pic-box">
-                <ul class="pic-list"></ul>
-                <div class="add-pic">
-                    <input id="zzPic" type="file" name="user-zzpic" accept="image/*" onchange="upload('#zzPic');" />
-                </div>
-            </div>
-        </div>
-        <div class="weui-cell pic-container">
-            <div class="title">权威资质证书照片（选填）</div>
-            <div class="pic-box">
-                <ul class="pic-list"></ul>
-                <div class="add-pic">
-                    <input id="qwzzPic" type="file" name="user-qwzzpic" accept="image/*" onchange="upload('#qwzzPic');" />
+
+        <div class="weui-cells weui-cells_form">
+            <div class="weui-cell">
+                <div class="weui-cell__bd">
+                    <div class="weui-uploader">
+                        <div class="weui-uploader__hd">
+                            <p class="weui-uploader__title">权威资质证书照片（选填）</p>
+                        </div>
+                        <div class="weui-uploader__bd">
+                            <ul class="weui-uploader__files" id="qwzzpicList">
+
+                            </ul>
+                            <div class="weui-uploader__input-box">
+                                <input id="qwzzPic" class="weui-uploader__input" type="file" accept="image/*" multiple="" onchange="uploads('#qwzzPic');">
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -200,6 +195,37 @@
             <img src="../images/icon_tips_bg@2x.png">
             <div class="text-content" id="textCont"></div>
             <a href="javascript:;" onclick="$('.text_popup').fadeOut(200);" class="close">关闭</a>
+        </div>
+    </div>
+    <!-- 添加资质弹窗 -->
+    <div class="aptitude_popup">
+        <div class="aptitude_cont">
+            <div class="weui-cell weui-cell_access">
+                <div class="weui-cell__hd"><label class="weui-label">资质认证</label></div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" name="user_aptitude" placeholder="请选择资质">
+                </div>
+                <div class="weui-cell__ft"></div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label">资质编号</label></div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" type="text" name="user_aptitude_num" placeholder="请输入资质编号">
+                </div>
+            </div>
+            <div class="weui-cell pic-container">
+                <div class="title">资质证证明（照片）<a href="javascript:;" data-src="../images/example/example_1.png" onclick="openPicExample(this)" class="example">示例</a></div>
+                <div class="pic-box">
+                    <ul class="pic-list"></ul>
+                    <div class="add-pic">
+                        <input id="zzPic" type="file" name="user-zzpic" accept="image/*" onchange="upload('#zzPic');" />
+                    </div>
+                </div>
+            </div>
+            <div class="popup_btns">
+                <a href="javascript:;" class="cancel" onclick="$('.aptitude_popup').fadeOut(200);">取消</a>
+                <a href="javascript:;" class="confirm">确定</a>
+            </div>
         </div>
     </div>
     <!-- body 最后 -->

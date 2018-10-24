@@ -5,8 +5,12 @@ $("input[name='user-sex']").picker({
     toolbarCloseText: "确定",
     cols: [{
         textAlign: 'center',
-        values: ['男', '女']
-    }]
+        values: ['0', '1'],
+        displayValues: ['男', '女']
+    }],
+    onChange: function(e) {
+        $('.show_sex').html(e.displayValue[0]);
+    }
 });
 //生日
 $("input[name='user-birthday']").datetimePicker({
@@ -46,6 +50,7 @@ var upload = function(c) {
         aDel.onclick = function() {
             this.parentNode.remove();
             $c.parentNode.style.display = 'block';
+            $c.value = '';
         }
         li.appendChild(img);
         li.appendChild(aDel);
@@ -83,70 +88,120 @@ $("input[name='user-zybj']").picker({
     }]
 });
 //资质认证
-$("input[name='user-aptitude']").select({
+$("input[name='user_aptitude']").picker({
     title: "请选择您的资质",
-    multi: true,
-    min: 1,
-    max: 3,
-    items: [
-        {
-            title: "国家二级心理咨询师",
-            value: 1
-        },
-        {
-            title: "国家三级心理咨询师",
-            value: 2
-        },
-        {
-            title: "精神科医师",
-            value: 3
-        },
-        {
-            title: "心理治疗师",
-            value: 4
-        },
-        {
-            title: "注册系统心理师",
-            value: 5
-        },
-        {
-            title: "注册系统督导师",
-            value: 6
-        },
-        {
-            title: "注册系统助理心理师",
-            value: 7
-        },
-        {
-            title: "心理健康辅导员",
-            value: 8
-        },
-        {
-            title: "婚姻家庭咨询师",
-            value: 9
-        },
-        {
-            title: "在港澳台地区及海外执业的专家：需提供有当地法律认可的执业资格",
-            value: 10
-        },
-        {
-            title: "心理工作者",
-            value: 11
-        },
-        {
-            title: "医生",
-            value: 12
-        },
-        {
-            title: "律师",
-            value: 13
-        },
-        {
-            title: "教师",
-            value: 14
-        }
-    ]
+    toolbarCloseText: "确定",
+    cols: [{
+        textAlign: 'center',
+        values: [
+            '国家二级心理咨询师',
+            '国家三级心理咨询师',
+            '精神科医师',
+            '心理治疗师',
+            '注册系统心理师',
+            '注册系统督导师',
+            '注册系统助理心理师',
+            '心理健康辅导员',
+            '婚姻家庭咨询师',
+            '在港澳台地区及海外执业的专家：需提供有当地法律认可的执业资格',
+            '心理工作者',
+            '医生',
+            '律师',
+            '教师'
+        ]
+    }]
 });
+//打开添加资质弹窗
+var openAddAptitude = function() {
+    $("input[name='user_aptitude']").val('');
+    $("input[name='user_aptitude_num']").val('');
+    $('.aptitude_popup .pic-list li').remove();
+    $('#zzPic').parent().show();
+    $('#zzPic').val('');
+    $('.aptitude_popup').fadeIn(200);
+}
+//确认添加资质
+$('.aptitude_popup .confirm').click(function() {
+    var zzgrade = $("input[name='user_aptitude']").val(),
+        zzNum = $("input[name='user_aptitude_num']").val(),
+        zzPic = $('.aptitude_popup .pic-list img').attr('src');
+
+    if (zzgrade == '') {
+        $.alert("资质认证不能为空");
+        return
+    }
+
+    aptitudeDivs(zzgrade, zzNum, zzPic);
+    $('.aptitude_popup').fadeOut(200);
+    var listLen = $('#aptitudeList>div').length;
+    if (listLen >= 3) {
+        $('.add-aptitude').hide();
+    }
+})
+//资质结构
+var aptitudeDivs = function(grade, num, picUrl) {
+    var cardDiv = document.createElement('div');
+    cardDiv.className = 'card';
+
+    var card1 = document.createElement('div');
+    card1.className = 'aptitude-card';
+        var label1 = document.createElement('div');
+        label1.className = 'label';
+        label1.innerHTML = '资质认证：';
+        var info1 = document.createElement('div');
+        info1.className = 'info';
+        info1.innerHTML = grade;
+    card1.appendChild(label1);
+    card1.appendChild(info1);
+    cardDiv.appendChild(card1);
+
+    if (num !== '') {
+        var card2 = document.createElement('div');
+        card2.className = 'aptitude-card';
+            var label2 = document.createElement('div');
+            label2.className = 'label';
+            label2.innerHTML = '资质编号：';
+            var info2 = document.createElement('div');
+            info2.className = 'info';
+            info2.innerHTML = num;
+        card2.appendChild(label2);
+        card2.appendChild(info2);
+        cardDiv.appendChild(card2);
+    }
+        
+    if (picUrl !== undefined) {
+        var card3 = document.createElement('div');
+        card3.className = 'aptitude-card';
+            var label3 = document.createElement('div');
+            label3.className = 'label';
+            label3.innerHTML = '资质证书：';
+            var info3 = document.createElement('div');
+            info3.className = 'info aptitude-pic';
+                var img = document.createElement('img');
+                img.src = picUrl;
+            info3.appendChild(img);
+        card3.appendChild(label3);
+        card3.appendChild(info3);
+        cardDiv.appendChild(card3);
+    }
+
+    var card4 = document.createElement('div');
+    card4.className = 'aptitude-card aptitude-del';
+        var aBtn = document.createElement('a');
+        aBtn.href = 'javascript:;';
+        aBtn.innerHTML = '删除该资质';
+        aBtn.onclick = function() {
+            this.parentNode.parentNode.remove();
+            var listLen = $('#aptitudeList>div').length;
+            if (listLen < 3) {
+                $('.add-aptitude').show();
+            }
+        }
+    card4.appendChild(aBtn);
+    cardDiv.appendChild(card4);
+
+    document.getElementById('aptitudeList').appendChild(cardDiv);
+}
 //打开图片示例
 var openPicExample = function(obj) {
     var picSrc = $(obj).attr('data-src');
@@ -218,7 +273,7 @@ var uploads = function(c) {
             li.appendChild(aDel);
             $c.parentNode.previousElementSibling.appendChild(li);
         };
-    })  
+    })
 }
 //打开文字示例
 var openTextExample = function(name) {
